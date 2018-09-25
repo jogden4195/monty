@@ -1,7 +1,7 @@
 # README
 ### Description
 C - Stacks, Queues - LIFO, FILO
-#### What to lears:
+#### What to learn:
 - What do LIFO and FILO mean?
 - What is a stack, and when to use it.
 - What is a queue and when to use it.
@@ -32,4 +32,5 @@ Code will be compiled this way:
 
 #### Authors
 Nicole Swanson - [@Nicolette_Swan](https://twitter.com/Nicolette_Swan)
+
 Jenn Ogden -  [@jogden95](https://twitter.com/jogden95)
