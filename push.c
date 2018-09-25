@@ -7,11 +7,11 @@
  * @n: integer value to assign n in the new node
  * Return: the address of the new node, of NULL if it failed
  */
-dlistint_t *push_n(dlistint_t **head, const int n)
+stack_t *push_n(stack_t **head, const int n)
 {
-	dlistint_t *new_node, *temp;
+	stack_t *new_node, *temp;
 
-	new_node = (dlistint_t *)malloc(sizeof(*head) * 8);
+	new_node = (stack_t *)malloc(sizeof(*head) * 8);
 	if (!new_node)
 		return (NULL);
 	new_node->n = n;
