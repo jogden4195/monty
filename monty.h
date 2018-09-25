@@ -34,6 +34,6 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-dlistint_t *push_n(dlistint_t **head, const int n);
+stack_t *push_n(stack_t **head, const int n);
 
 #endif /* _MONTY_H_ */
