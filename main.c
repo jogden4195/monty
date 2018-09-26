@@ -11,8 +11,7 @@
 void main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
-	stack_t **head = stack;
-	FILE *filenaame;
+	FILE *filename;
 
 	if (argc > 2):
 	{
@@ -21,9 +20,6 @@ void main(int argc, char **argv)
 	}
 
 	filename = argv[1];
-	/**
-	 * might have to change args passed into getline
-	 * to include stack
-	 */
 	getline(filename);
+	exit(EXIT_SUCCESS);
 }
