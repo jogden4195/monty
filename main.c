@@ -7,6 +7,7 @@
  *
  * Return: none
  */
+stack_t **stack;
 
 void main(int argc, char **argv)
 {
