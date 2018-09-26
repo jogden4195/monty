@@ -6,8 +6,11 @@
 #include <string.h>
 #include <sys/types.h>
 
+#define EXIT_SUCCESS 0
 #define EXIT_FAILURE 8
-extern stack_t **head;
+
+extern stack_t **stack;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,12 +41,13 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-stack_t *push_n(stack_t **head, const int n);
+stack_t *push_n(char *array, unsigned int line);
 void get_line(FILE *filename);
 int arg_count(char *str);
-char **tokenize(char *str);
-int is_num(char **arr);
-void pall(stack_t **stack, unsigned int line);
-void get_ops(stack_tchar **array);
+char *tokenize(char *str);
+int is_num(char *arr);
+int is_digit(char c);
+void pall(char *array __attribute__((unused)), unsigned int line);
+void get_ops(char *array, unsigned int line);
 
 #endif /* _MONTY_H_ */
