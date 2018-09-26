@@ -31,7 +31,10 @@ char **tokenize(char *str)
 	words = arg_count(str);
 	arr = malloc(sizeof(char *) * (words + 1));
 	if (!arr)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	token = strtok(str, " ");
 	while (token != NULL)
 	{
