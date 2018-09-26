@@ -42,5 +42,7 @@ void get_line(FILE *filename);
 int arg_count(char *str);
 char **tokenize(char *str);
 int is_num(char **arr);
+void pall(stack_t **stack, unsigned int line);
+void get_ops(stack_tchar **array);
 
 #endif /* _MONTY_H_ */
