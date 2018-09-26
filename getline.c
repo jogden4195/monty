@@ -11,8 +11,13 @@ void get_line(FILE *filename)
 	FILE *fptr;
 	char *lineptr = NULL, **args;
 	size_t len = 0;
-	unsigned int line_count = 0;
+	unsigned int line_count = 1;
 
+	if (access(filename) == -1)
+	{
+		fprintf(stderr, "Error: File <%p> does not exist.\n", filename); 
+		exit(EXIT_FAILURE);
+	}
 	fptr = open(filename, "r");
 	if (!fptr)
 	{
@@ -21,10 +26,11 @@ void get_line(FILE *filename)
 	}
 	while ((read = getline(&lineptr, &len, fptr)) != -1)
 	{
-		line_count++;
 		*args = tokenize(read);
 		get_ops(*head, *args, line_count);
 		free(args);
 		free(read);
+		line_count++;
 	}
+	close(filename);
 }
