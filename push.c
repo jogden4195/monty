@@ -7,7 +7,7 @@
  * @n: integer value to assign n in the new node
  * Return: the address of the new node, of NULL if it failed
  */
-stack_t *push_n(stack_t **head, const int n)
+void *push_n(stack_t **head, unsigned int line_num)
 {
 	stack_t *new_node, *temp;
 
@@ -28,5 +28,4 @@ stack_t *push_n(stack_t **head, const int n)
 		temp = temp->next;
 	temp->next = new_node;
 	new_node->prev = temp;
-	return (new_node);
 }
