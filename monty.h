@@ -5,11 +5,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
-
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 8
-
-extern stack_t **stack;
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -27,6 +25,8 @@ typedef struct stack_s
   struct stack_s *next;
 } stack_t;
 
+extern stack_t **stack;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -38,16 +38,16 @@ typedef struct stack_s
 typedef struct instruction_s
 {
   char *opcode;
-  void (*f)(stack_t **stack, unsigned int line_number);
+  void (*f)(char **array, unsigned int line_number);
 } instruction_t;
 
-stack_t *push_n(char *array, unsigned int line);
-void get_line(FILE *filename);
+void push_n(char **array, unsigned int line);
+void get_line(const char *filename);
 int arg_count(char *str);
-char *tokenize(char *str);
+char **tokenize(char *str);
 int is_num(char *arr);
 int is_digit(char c);
-void pall(char *array __attribute__((unused)), unsigned int line);
-void get_ops(char *array, unsigned int line);
+void pall(char **array __attribute__((unused)), unsigned int line);
+void get_ops(char **array, unsigned int line);
 
 #endif /* _MONTY_H_ */

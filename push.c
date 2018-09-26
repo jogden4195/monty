@@ -7,11 +7,11 @@
  * @line_num: current line count
  * Return: void
  */
-void *push_n(char *arr, unsigned int line_num)
+void push_n(char **arr, unsigned int line_num)
 {
 	stack_t *new_node, *temp;
 
-	if (sizeof(arr) != 2 || !is_num(arr[1]))
+	if (sizeof(arr) != 2 || is_num(arr[1]) == 0)
 	{
 		fprintf(stderr, "L<%u>: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
@@ -29,7 +29,7 @@ void *push_n(char *arr, unsigned int line_num)
 		new_node->next = *stack;
 		new_node->prev = NULL;
 		*stack = new_node;
-		return;
+		exit(EXIT_SUCCESS);
 	}
 	temp = *stack;
 	while (temp->next)
@@ -43,14 +43,17 @@ void *push_n(char *arr, unsigned int line_num)
  * @arr: string array
  * Return: 1 on success, 0 on failure
  */
-int is_num(char **arr)
+int is_num(char *arr)
 {
-	while (*arr)
+	int i = 0;
+
+	while (arr[i] != '\0')
 	{
-		if (isdigit(*arr))
+		if (is_digit(arr[i]))
 			continue;
 		else
 			return (0);
+		i++;
 	}
 	return (1);
 }

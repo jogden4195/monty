@@ -5,7 +5,7 @@
  * tokenizes the line and then checks if arguments are in a struct of op codes
  * @filename: file to get lines from
  */
-void get_line(FILE *filename)
+void get_line(const char *filename)
 {
 	ssize_t read;
 	FILE *fptr;
@@ -13,12 +13,12 @@ void get_line(FILE *filename)
 	size_t len = 0;
 	unsigned int line_count = 1;
 
-	if (access(filename) == -1)
+	if (access(filename, F_OK) == -1)
 	{
 		fprintf(stderr, "Error: File <%p> does not exist.\n", filename); 
 		exit(EXIT_FAILURE);
 	}
-	fptr = open(filename, "r");
+	fptr = fopen(filename, O_RDONLY);
 	if (!fptr)
 	{
 		fprintf(stderr, "Error: Can't open file <%p>\n", filename);
@@ -26,11 +26,11 @@ void get_line(FILE *filename)
 	}
 	while ((read = getline(&lineptr, &len, fptr)) != -1)
 	{
-		*args = tokenize(read);
-		get_ops(*head, *args, line_count);
+		args = tokenize(lineptr);
+		get_ops(args, line_count);
 		free(args);
-		free(read);
+		free(lineptr);
 		line_count++;
 	}
-	close(filename);
+	fclose(fptr);
 }
