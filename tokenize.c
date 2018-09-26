@@ -23,9 +23,9 @@ int arg_count(char *str)
  * @str: string to tokenize
  * Return: array
  */
-char **tokenize(char *str)
+char *tokenize(char *str)
 {
-	char *token, **arr;
+	char *token, *arr;
 	int i = 0, words;
 
 	words = arg_count(str);
