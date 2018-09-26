@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * add_dnodeint_end - function that adds a new node at the end of a doubly
- * linked list
+ * push_n - function that adds a new node at the end of a doubly linked list
  * @head: double pointer to doubly linked list
- * @n: integer value to assign n in the new node
- * Return: the address of the new node, of NULL if it failed
+ * @arr: string array
+ * @line_num: current line count
+ * Return: void
  */
 void *push_n(stack_t **head, char **arr, unsigned int line_num)
 {
@@ -37,7 +37,13 @@ void *push_n(stack_t **head, char **arr, unsigned int line_num)
 	temp->next = new_node;
 	new_node->prev = temp;
 }
-int is_num (char **arr)
+
+/**
+ * is_num - function to check is string is number
+ * @arr: string array
+ * Return: 1 on success, 0 on failure
+ */
+int is_num(char **arr)
 {
 	while (*arr)
 	{
