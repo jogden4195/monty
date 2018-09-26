@@ -11,14 +11,19 @@ void get_line(FILE *filename)
 	FILE *fptr;
 	char *lineptr = NULL, **args;
 	size_t len = 0;
+	unsigned int line_count = 0;
 
 	fptr = open(filename, "r");
 	if (!fptr)
+	{
+		fprintf(stderr, "Error: Can't open file <%p>\n", filename);
 		exit(EXIT_FAILURE);
+	}
 	while ((read = getline(&lineptr, &len, fptr)) != -1)
 	{
+		line_count++;
 		*args = tokenize(read);
-		get_ops(*args);
+		get_ops(*head, *args, line_count);
 		free(args);
 		free(read);
 	}
