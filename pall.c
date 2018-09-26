@@ -8,13 +8,13 @@
  * Return: None
  */
 
-void pall(char *array __attribute__((unused)), unsigned int line)
+void pall(char **array __attribute__((unused)), unsigned int line)
 {
 	stack_t *current = *stack;
 
 	if (!stack)
 	{
-		fprintf("L%d: invalid instruction\n", line);
+		fprintf(stderr, "L%d: invalid instruction\n", line);
 		exit(EXIT_FAILURE);
 	}
 	while (current)
