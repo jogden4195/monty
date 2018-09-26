@@ -1,9 +1,12 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
+#define EXIT_FAILURE 8
+extern stack_t **head;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -35,5 +38,9 @@ typedef struct instruction_s
 } instruction_t;
 
 stack_t *push_n(stack_t **head, const int n);
+void get_line(FILE *filename);
+int arg_count(char *str);
+char **tokenize(char *str);
+int is_num(char **arr);
 
 #endif /* _MONTY_H_ */
