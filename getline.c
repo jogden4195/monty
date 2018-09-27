@@ -16,19 +16,20 @@ void get_line(stack_t **stack, const char *filename)
 
 	if (access(filename, F_OK) == -1)
 	{
-		fprintf(stderr, "Error: File <%p> does not exist.\n", filename); 
+		fprintf(stderr, "Error: File %p does not exist.\n", filename); 
 		exit(EXIT_FAILURE);
 	}
 	fptr = fopen(filename, "r");
 	if (!fptr)
 	{
-		fprintf(stderr, "Error: Can't open file <%p>\n", filename);
+		fprintf(stderr, "Error: Can't open file %p\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&lineptr, &len, fptr)) != -1)
 	{
 		array = tokenize(lineptr);
 		get_ops(stack, line_count);
+		//free(lineptr);
 		free(array);
 		line_count++;
 	}
