@@ -6,7 +6,7 @@
  * @line: the current line number
  */
 
-void swap (stack_t **stack, unsigned int line)
+void swap(stack_t **stack, unsigned int line)
 {
 	int i;
 

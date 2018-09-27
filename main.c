@@ -7,9 +7,8 @@
  *
  * Return: none
  */
-char **array;
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 	const char *filename;
@@ -22,5 +21,5 @@ void main(int argc, char **argv)
 	filename = argv[1];
 	get_line(&stack, filename);
 	free_stack(&stack);
-	exit(EXIT_SUCCESS);
+	return (1);
 }

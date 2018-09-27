@@ -10,7 +10,7 @@ void free_stack(stack_t **stack)
 
 	head = *stack;
 
-	while(head)
+	while (head)
 	{
 		free(head);
 		head = head->next;
