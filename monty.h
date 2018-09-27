@@ -26,8 +26,8 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+extern char **array;
 char **array;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
