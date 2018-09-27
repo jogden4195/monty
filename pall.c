@@ -8,7 +8,7 @@
  * Return: None
  */
 
-void pall(char **array __attribute__((unused)), unsigned int line)
+void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *current = *stack;
 

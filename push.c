@@ -7,11 +7,13 @@
  * @line_num: current line count
  * Return: void
  */
-void push_n(char **arr, unsigned int line_num)
+void push_n(stack_t **stack, unsigned int line_num)
 {
+	
 	stack_t *new_node, *temp;
-
-	if (sizeof(arr) != 2 || is_num(arr[1]) == 0)
+	int n;
+	
+	if (element_counter() != 2) /* || is_num(arr[1]) == 0) */
 	{
 		fprintf(stderr, "L<%u>: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
@@ -22,51 +24,40 @@ void push_n(char **arr, unsigned int line_num)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = atoi(arr[1]);
+	printf("Passed malloc\n");
+	n = atoi(array[1]);
+	new_node->n = atoi(array[1]);
 	new_node->next = NULL;
-	if (!(*stack))
+	printf("Almost there hoe\n");
+	if (!(stack))
 	{
-		new_node->next = *stack;
+		printf("ayyyyyyyyyye\n");
 		new_node->prev = NULL;
+		printf("I found you miss new booty\n");
+		printf("new node n = %d\n", new_node->n);
 		*stack = new_node;
-		exit(EXIT_SUCCESS);
+		printf("Bitch we made it\n");
 	}
-	temp = *stack;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new_node;
-	new_node->prev = temp;
-}
-
-/**
- * is_num - function to check is string is number
- * @arr: string array
- * Return: 1 on success, 0 on failure
- */
-int is_num(char *arr)
-{
-	int i = 0;
-
-	while (arr[i] != '\0')
+	else
 	{
-		if (is_digit(arr[i]))
-			continue;
-		else
-			return (0);
-		i++;
+	  printf("yo yo yo\n");
+		temp = *stack;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = new_node;
+		new_node->prev = temp;
 	}
-	return (1);
 }
 
-
 /**
- * is_digit - checks if character is a digit
- * @c: character to check
- * Return: 1 on success, 0 on failure
+ * element_counter - counts the number of elements in the array
+ * @arr: the array whose elements we are counting
+ * Return: number of elements in the array
  */
-int is_digit(char c)
+int element_counter(void)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int count = 0;
+	while (array[count])
+		count++;
+	return count;
 }
