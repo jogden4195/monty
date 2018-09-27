@@ -29,5 +29,6 @@ void get_line(stack_t **stack, const char *filename)
 		get_ops(stack, line_count);
 		free(array);
 	}
+	free(lineptr);
 	fclose(fptr);
 }
