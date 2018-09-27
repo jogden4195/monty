@@ -23,13 +23,14 @@ void get_ops(stack_t **stack, unsigned int line)
 	};
 	while (opcodes[i].opcode != NULL)
 	{
-		if (strcmp(array[0], opcodes[i].opcode) == 0)
+		if (strcmp(element_t.str, opcodes[i].opcode) == 0)
 		{
 			opcodes[i].f(stack, line);
 			return;
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, element_t.str);
+	free_stack(stack);
 	exit(EXIT_FAILURE);
 }

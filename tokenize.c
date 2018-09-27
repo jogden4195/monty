@@ -30,18 +30,11 @@ void tokenize(char *str)
 	words = arg_count(str);
 	if (words > 0)
 	{
-		array = malloc(sizeof(char *) * (words + 1));
-		if (!array)
-		{
-			fprintf(stderr, "Error: malloc failed\n");
-			exit(EXIT_FAILURE);
-		}
-		array[0] = strtok(str, " \n\t");
+		element_t.str = strtok(str, " \n\t");
 		if (words > 1)
 		{
-			array[1] = strtok(NULL, " \n\t");
+			element_t.n = atoi(strtok(NULL, " \n\t"));
 			i++;
 		}
-		array[i] = NULL;
 	}
 }

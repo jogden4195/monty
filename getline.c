@@ -8,7 +8,6 @@
  */
 void get_line(stack_t **stack, const char *filename)
 {
-	ssize_t read;
 	FILE *fptr;
 	char *lineptr = NULL;
 	size_t len = 0;
@@ -20,15 +19,15 @@ void get_line(stack_t **stack, const char *filename)
 		fprintf(stderr, "Error: Can't open file %p\n", filename);
 		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&lineptr, &len, fptr)) != -1)
+	while (getline(&lineptr, &len, fptr) != -1)
 	{
 		line_count++;
-		if (read == 1)
+		if (*lineptr == '\n')
 			continue;
 		tokenize(lineptr);
 		get_ops(stack, line_count);
-		free(array);
 	}
 	free(lineptr);
+	free_stack(stack);
 	fclose(fptr);
 }
