@@ -35,11 +35,11 @@ char **tokenize(char *str)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(str, " ");
+	token = strtok(str, " \n\t");
 	while (token != NULL)
 	{
 		arr[i] = token;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n\t");
 		i++;
 	}
 	arr[i] = NULL;
