@@ -8,8 +8,9 @@
  * Returns: the function that the opcode corresponds to.
  */
 
-void get_ops(char **array, unsigned int line)
+void get_ops(stack_t **stack, unsigned int line)
 {
+	printf("in ops function\n");
 	int i;
 	instruction_t opcodes[] = {
 		{"push", push_n},
@@ -20,7 +21,7 @@ void get_ops(char **array, unsigned int line)
         while (opcodes[i].opcode)
 	{
 		if (strcmp(array[0], opcodes[i].opcode) == 0)
-			opcodes[i].f(array, line);
+			opcodes[i].f(stack, line);
 		i++;
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
