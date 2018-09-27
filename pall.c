@@ -12,14 +12,11 @@ void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *current = *stack;
 
-	if (!stack)
+	if (!current)
 	{
 		fprintf(stderr, "L%d: invalid instruction\n", line);
 		exit(EXIT_FAILURE);
 	}
 	while (current)
-	{
-		printf("%d\n", current->n);
 		current = current->next;
-	}
 }

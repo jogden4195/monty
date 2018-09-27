@@ -9,11 +9,10 @@
  */
 void push_n(stack_t **stack, unsigned int line_num)
 {
-	
-	stack_t *new_node, *temp;
+	stack_t *new_node, *temp, *head;
 	int n;
-	
-	if (element_counter() != 2) /* || is_num(arr[1]) == 0) */
+	head = *stack;
+	if (element_counter() != 2)
 	{
 		fprintf(stderr, "L<%u>: usage: push integer\n", line_num);
 		exit(EXIT_FAILURE);
@@ -24,29 +23,13 @@ void push_n(stack_t **stack, unsigned int line_num)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("Passed malloc\n");
 	n = atoi(array[1]);
-	new_node->n = atoi(array[1]);
-	new_node->next = NULL;
-	printf("Almost there hoe\n");
-	if (!(stack))
-	{
-		printf("ayyyyyyyyyye\n");
-		new_node->prev = NULL;
-		printf("I found you miss new booty\n");
-		printf("new node n = %d\n", new_node->n);
-		*stack = new_node;
-		printf("Bitch we made it\n");
-	}
-	else
-	{
-	  printf("yo yo yo\n");
-		temp = *stack;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = new_node;
-		new_node->prev = temp;
-	}
+	new_node->n = n;
+	new_node->prev = NULL;
+	if (head != NULL)
+		(head)->prev = new_node;
+	new_node->next = head;
+	head = new_node;
 }
 
 /**
