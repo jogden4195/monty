@@ -23,25 +23,25 @@ int arg_count(char *str)
  * @str: string to tokenize
  * Return: array
  */
-char **tokenize(char *str)
+void tokenize(char *str)
 {
-	char *token, **arr;
-	int i = 0, words;
+	int i = 1, words;
 
 	words = arg_count(str);
-	arr = malloc(sizeof(char *) * (words + 1));
-	if (!arr)
+	if (words > 0)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		array = malloc(sizeof(char *) * (words + 1));
+		if (!array)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+		array[0] = strtok(str, " \n\t");
+		if (words > 1)
+		{
+			array[1] = strtok(NULL, " \n\t");
+			i++;
+		}
+		array[i] = NULL;
 	}
-	token = strtok(str, " \n\t");
-	while (token != NULL)
-	{
-		arr[i] = token;
-		token = strtok(NULL, " \n\t");
-		i++;
-	}
-	arr[i] = NULL;
-	return (arr);
 }
