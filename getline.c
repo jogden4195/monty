@@ -12,7 +12,7 @@ void get_line(stack_t **stack, const char *filename)
 	FILE *fptr;
 	char *lineptr = NULL;
 	size_t len = 0;
-	unsigned int line_count = 1;
+	unsigned int line_count = 0;
 
 	fptr = fopen(filename, "r");
 	if (!fptr)
@@ -22,10 +22,12 @@ void get_line(stack_t **stack, const char *filename)
 	}
 	while ((read = getline(&lineptr, &len, fptr)) != -1)
 	{
+		line_count++;
+		if (read == 1)
+			continue;
 		tokenize(lineptr);
 		get_ops(stack, line_count);
 		free(array);
-		line_count++;
 	}
 	fclose(fptr);
 }
