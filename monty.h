@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -28,7 +29,7 @@ typedef struct stack_s
 
 typedef struct element_s
 {
-	int n;
+	char *n;
 	char *str;
 } element_g;
 extern element_g element_t;
@@ -59,5 +60,6 @@ void swap(stack_t **stack, unsigned int line);
 void add(stack_t **stack, unsigned int line);
 void free_stack(stack_t **stack);
 void nop(stack_t **stack, unsigned int line);
+int isnum(char *str);
 
 #endif /* _MONTY_H_ */
