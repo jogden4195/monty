@@ -11,7 +11,7 @@ char **array;
 
 void main(int argc, char **argv)
 {
-	stack_t **stack = NULL;
+	stack_t *stack = NULL;
 	const char *filename;
 
 	if (argc > 2)
@@ -20,6 +20,6 @@ void main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	filename = argv[1];
-	get_line(stack, filename);
+	get_line(&stack, filename);
 	exit(EXIT_SUCCESS);
 }
