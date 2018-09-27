@@ -10,20 +10,24 @@
 
 void get_ops(stack_t **stack, unsigned int line)
 {
-	printf("in ops function\n");
-	int i;
+	int i = 0, flag = 0;
 	instruction_t opcodes[] = {
 		{"push", push_n},
 		{"pall", pall},
 		{NULL, NULL}
 	};
-
         while (opcodes[i].opcode)
 	{
 		if (strcmp(array[0], opcodes[i].opcode) == 0)
+		{
+			flag = 1;
 			opcodes[i].f(stack, line);
+		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
-	exit(EXIT_FAILURE);
+	if (flag == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
+		exit(EXIT_FAILURE);
+	}
 }

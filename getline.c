@@ -30,7 +30,6 @@ void get_line(stack_t **stack, const char *filename)
 		array = tokenize(lineptr);
 		get_ops(stack, line_count);
 		free(array);
-		free(lineptr);
 		line_count++;
 	}
 	fclose(fptr);
