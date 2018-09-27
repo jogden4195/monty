@@ -25,7 +25,7 @@ typedef struct stack_s
   struct stack_s *next;
 } stack_t;
 
-extern stack_t **stack;
+extern char **array;
 
 /**
  * struct instruction_s - opcode and its function
@@ -38,16 +38,16 @@ extern stack_t **stack;
 typedef struct instruction_s
 {
   char *opcode;
-  void (*f)(char **array, unsigned int line_number);
+  void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push_n(char **array, unsigned int line);
-void get_line(const char *filename);
+
+void push_n(stack_t **stack, unsigned int line);
+void get_line(stack_t **stack, const char *filename);
 int arg_count(char *str);
 char **tokenize(char *str);
-int is_num(char *arr);
-int is_digit(char c);
-void pall(char **array __attribute__((unused)), unsigned int line);
-void get_ops(char **array, unsigned int line);
+void pall(stack_t **stack, unsigned int line);
+void get_ops(stack_t **stack, unsigned int line);
+int element_counter(void);
 
 #endif /* _MONTY_H_ */
