@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * ops -  gets the function the opcode corresponds to.
- * @array: the array of args
+ * get_ops -  gets the function the opcode corresponds to.
+ * @stack: the stack we are editing
  * @line: current line number
  *
  * Returns: the function that the opcode corresponds to.
@@ -17,9 +17,11 @@ void get_ops(stack_t **stack, unsigned int line)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
+		{"np", np},
 		{NULL, NULL}
 	};
-        while (opcodes[i].opcode != NULL)
+	while (opcodes[i].opcode != NULL)
 	{
 		if (strcmp(array[0], opcodes[i].opcode) == 0)
 		{
