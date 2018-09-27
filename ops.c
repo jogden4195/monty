@@ -10,24 +10,23 @@
 
 void get_ops(stack_t **stack, unsigned int line)
 {
-	int i = 0, flag = 0;
+	int i = 0;
 	instruction_t opcodes[] = {
 		{"push", push_n},
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
-        while (opcodes[i].opcode)
+        while (opcodes[i].opcode != NULL)
 	{
 		if (strcmp(array[0], opcodes[i].opcode) == 0)
 		{
-			flag = 1;
 			opcodes[i].f(stack, line);
+			return;
 		}
 		i++;
 	}
-	if (flag == 0)
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
-		exit(EXIT_FAILURE);
-	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, array[0]);
+	exit(EXIT_FAILURE);
 }

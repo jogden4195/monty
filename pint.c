@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * pint_n - function to print first value in stack
+ * pint - function to print first value in stack
  * @stack: pointer to value stack
  * @line: curent line number
  */
-void pint_n(stack_t **stack, unsigned int line)
+void pint(stack_t **stack, unsigned int line)
 {
 	stack_t *head;
 
@@ -13,7 +13,9 @@ void pint_n(stack_t **stack, unsigned int line)
 
 	if (head)
 		fprintf(stdout, "%d\n", head->n);
-
-	fprintf(stderr, "L%u: can't pint, stack empty\n", line);
-	exit(EXIT_FAILURE);
+	else
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
+		exit(EXIT_FAILURE);
+	}
 }

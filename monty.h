@@ -49,6 +49,8 @@ char **tokenize(char *str);
 void pall(stack_t **stack, unsigned int line);
 void get_ops(stack_t **stack, unsigned int line);
 int element_counter(void);
-void pint_n(stack_t **stack, unsigned int line);
+void pint(stack_t **stack, unsigned int line __attribute__((unused)));
+void pop(stack_t **stack, unsigned int line);
+void free_stack(stack_t **stack);
 
 #endif /* _MONTY_H_ */
