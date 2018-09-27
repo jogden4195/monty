@@ -51,6 +51,7 @@ void get_ops(stack_t **stack, unsigned int line);
 int element_counter(void);
 void pint(stack_t **stack, unsigned int line __attribute__((unused)));
 void pop(stack_t **stack, unsigned int line);
+void swap(stack_t **stack, unsigned int line);
 void free_stack(stack_t **stack);
 
 #endif /* _MONTY_H_ */
