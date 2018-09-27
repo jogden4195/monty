@@ -26,8 +26,13 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-extern char **array;
-char **array;
+typedef struct element_s
+{
+	int n;
+	char *str;
+} element_g;
+extern element_g element_t;
+element_g element_t;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -48,7 +53,6 @@ int arg_count(char *str);
 void tokenize(char *str);
 void pall(stack_t **stack, unsigned int line);
 void get_ops(stack_t **stack, unsigned int line);
-int element_counter(void);
 void pint(stack_t **stack, unsigned int line __attribute__((unused)));
 void pop(stack_t **stack, unsigned int line);
 void swap(stack_t **stack, unsigned int line);
