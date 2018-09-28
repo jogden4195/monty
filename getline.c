@@ -26,6 +26,7 @@ void get_line(stack_t **stack, const char *filename)
 		if (*lineptr == '\n')
 			continue;
 		tokenize(lineptr);
+    
 		err_flag = get_ops(stack, line_count);
 		if (err_flag == 0)
 		{
