@@ -30,7 +30,7 @@ void get_line(stack_t **stack, const char *filename)
 		err_flag = get_ops(stack, line_count);
 		if (err_flag == 0)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n",
+			fprintf(stderr, "L%u: unknown instruction %s\n",
 line_count, element_t.str);
 			free_stack(stack);
 			fclose(element_t.fptr);
