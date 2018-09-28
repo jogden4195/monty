@@ -21,6 +21,7 @@ void subtract(stack_t **stack, unsigned int line_number)
 	}
 
 	diff = (*stack)->next->n - (*stack)->n;
+
 	pop(stack, line_number);
 	(*stack)->n = diff;
 }
