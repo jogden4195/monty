@@ -11,7 +11,7 @@ void push_n(stack_t **stack, unsigned int line_num)
 	stack_t *new_node;
 	int n;
 
-	if (element_t.n == 0)
+	if (element_t.n == NULL || isnum(element_t.n) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
 		free_stack(stack);
@@ -24,11 +24,29 @@ void push_n(stack_t **stack, unsigned int line_num)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	n = element_t.n;
+	n = atoi(element_t.n);
 	new_node->n = n;
 	new_node->prev = NULL;
 	if (*stack != NULL)
 		(*stack)->prev = new_node;
 	new_node->next = *stack;
 	*stack = new_node;
+}
+
+/**
+ * isnum - check if string is a number
+ * @str: string to check
+ * Return: 1 on success, 0 on failure
+ */
+int isnum(char *str)
+{
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		if (isdigit(str[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }

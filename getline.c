@@ -11,6 +11,7 @@ void get_line(stack_t **stack, const char *filename)
 	FILE *fptr;
 	char *lineptr = NULL;
 	size_t len = 0;
+	int err_flag;
 	unsigned int line_count = 0;
 
 	fptr = fopen(filename, "r");
@@ -25,7 +26,16 @@ void get_line(stack_t **stack, const char *filename)
 		if (*lineptr == '\n')
 			continue;
 		tokenize(lineptr);
-		get_ops(stack, line_count);
+		err_flag = get_ops(stack, line_count);
+		if (err_flag == 0)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n",
+line_count, element_t.str);
+			free_stack(stack);
+			fclose(fptr);
+			free(lineptr);
+			exit(EXIT_FAILURE);
+		}
 	}
 	free(lineptr);
 	free_stack(stack);

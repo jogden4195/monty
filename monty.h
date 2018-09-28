@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -26,13 +27,22 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+/**
+ * struct element_s - data for opcode instructions
+ * @n: the number that the stack node will hold
+ * @str: the opcode
+ *
+ * Description: holds data for the opcode instructions
+ */
 typedef struct element_s
 {
-	int n;
+	char *n;
 	char *str;
 } element_g;
+
 extern element_g element_t;
 element_g element_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -52,12 +62,13 @@ void get_line(stack_t **stack, const char *filename);
 int arg_count(char *str);
 void tokenize(char *str);
 void pall(stack_t **stack, unsigned int line);
-void get_ops(stack_t **stack, unsigned int line);
+int get_ops(stack_t **stack, unsigned int line);
 void pint(stack_t **stack, unsigned int line __attribute__((unused)));
 void pop(stack_t **stack, unsigned int line);
 void swap(stack_t **stack, unsigned int line);
 void add(stack_t **stack, unsigned int line);
 void free_stack(stack_t **stack);
 void nop(stack_t **stack, unsigned int line);
+int isnum(char *str);
 
 #endif /* _MONTY_H_ */
