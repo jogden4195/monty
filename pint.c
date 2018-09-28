@@ -16,6 +16,8 @@ void pint(stack_t **stack, unsigned int line)
 	else
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 }

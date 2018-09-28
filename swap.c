@@ -13,6 +13,8 @@ void swap(stack_t **stack, unsigned int line)
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 	i = (*stack)->n;

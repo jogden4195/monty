@@ -8,37 +8,37 @@
  */
 void get_line(stack_t **stack, const char *filename)
 {
-	FILE *fptr;
-	char *lineptr = NULL;
 	size_t len = 0;
 	int err_flag;
 	unsigned int line_count = 0;
 
-	fptr = fopen(filename, "r");
-	if (!fptr)
+	element_t.lineptr = NULL;
+
+	element_t.fptr = fopen(filename, "r");
+	if (!element_t.fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %p\n", filename);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&lineptr, &len, fptr) != -1)
+	while (getline(&element_t.lineptr, &len, element_t.fptr) != -1)
 	{
 		line_count++;
-		if (*lineptr == '\n')
+		tokenize(element_t.lineptr);
+		if (element_t.str == NULL)
 			continue;
-		tokenize(lineptr);
-    
+
 		err_flag = get_ops(stack, line_count);
 		if (err_flag == 0)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n",
 line_count, element_t.str);
 			free_stack(stack);
-			fclose(fptr);
-			free(lineptr);
+			fclose(element_t.fptr);
+			free(element_t.lineptr);
 			exit(EXIT_FAILURE);
 		}
 	}
-	free(lineptr);
+	free(element_t.lineptr);
 	free_stack(stack);
-	fclose(fptr);
+	fclose(element_t.fptr);
 }
