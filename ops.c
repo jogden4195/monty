@@ -24,6 +24,7 @@ int get_ops(stack_t **stack, unsigned int line_number)
 		{"mul", multiply},
 		{"mod", modulo},
 		{"#", nop},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	while (opcodes[i].opcode != NULL)
