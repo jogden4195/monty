@@ -9,9 +9,8 @@
 void push_n(stack_t **stack, unsigned int line_num)
 {
 	stack_t *new_node;
-	int n;
-
-	if (element_t.n == NULL || isnum(element_t.n) == 0)
+	int i;
+	if (isnum(element_t.n) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
 		free_stack(stack);
@@ -28,8 +27,8 @@ void push_n(stack_t **stack, unsigned int line_num)
 		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(element_t.n);
-	new_node->n = n;
+	i = atoi(element_t.n);
+	new_node->n = i;
 	new_node->prev = NULL;
 	if (*stack != NULL)
 		(*stack)->prev = new_node;
@@ -46,6 +45,8 @@ int isnum(char *str)
 {
 	int i = 0;
 
+	if (str == NULL || str[0] == '\0')
+		return (0);
 	if (str[i] == '-')
 	{
 		if (str[i + 1] == '\0')
