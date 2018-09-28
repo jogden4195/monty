@@ -13,9 +13,10 @@ void pstr(stack_t **stack, unsigned int line)
 
 	if (*stack == NULL)
 	{
-		printf("\n");
+		nop(stack, line);
+		return;
 	}
-	while ((*stack)->next != NULL)
+	while (*stack != NULL)
 	{
 		if ((*stack)->n == 0)
 			break;
