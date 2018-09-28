@@ -74,5 +74,8 @@ void free_stack(stack_t **stack);
 void nop(stack_t **stack, unsigned int line_number);
 int isnum(char *str);
 void subtract(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
+void multiply(stack_t **stack, unsigned int line_number);
+void modulo(stack_t **stack, unsigned int line_number);
 
 #endif /* _MONTY_H_ */
