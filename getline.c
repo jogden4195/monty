@@ -17,7 +17,7 @@ void get_line(stack_t **stack, const char *filename)
 	fptr = fopen(filename, "r");
 	if (!fptr)
 	{
-		fprintf(stderr, "Error: Can't open file %p\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&lineptr, &len, fptr) != -1)
