@@ -18,7 +18,9 @@ void subtract(stack_t **stack, unsigned int line_number)
 		fclose(element_t.fptr);
 		exit(EXIT_SUCCESS);
 	}
-	diff = (*stack)->n - (*stack)->next->n;
+
+	diff = (*stack)->next->n - (*stack)->n;
+
 	(*stack)->next->n = diff;
 	pop(stack, line_number);
 }
