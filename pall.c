@@ -3,16 +3,17 @@
 /**
  * pall - prints all nodes of the stack
  * @stack: the stack we are printing
- * @line: the number of the line the instructions are on
+ * @line_number: the number of the line the instructions are on
  *
  * Return: None
  */
 
-void pall(stack_t **stack, unsigned int line)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
 
-	(void)line;
+	(void)line_number;
+
 	/*if (stack == NULL)*/
 	/*{*/
 		/*fprintf(stderr, "L%u: invalid instruction\n", line);*/

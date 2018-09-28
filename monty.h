@@ -44,7 +44,6 @@ typedef struct element_s
 	FILE *fptr;
 } element_g;
 
-extern element_g element_t;
 element_g element_t;
 
 /**
@@ -61,18 +60,18 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push_n(stack_t **stack, unsigned int line);
+void push_n(stack_t **stack, unsigned int line_number);
 void get_line(stack_t **stack, const char *filename);
 int arg_count(char *str);
 void tokenize(char *str);
-void pall(stack_t **stack, unsigned int line);
-int get_ops(stack_t **stack, unsigned int line);
-void pint(stack_t **stack, unsigned int line __attribute__((unused)));
-void pop(stack_t **stack, unsigned int line);
-void swap(stack_t **stack, unsigned int line);
-void add(stack_t **stack, unsigned int line);
+void pall(stack_t **stack, unsigned int line_number);
+int get_ops(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
-void nop(stack_t **stack, unsigned int line);
+void nop(stack_t **stack, unsigned int line_number);
 int isnum(char *str);
 
 #endif /* _MONTY_H_ */
