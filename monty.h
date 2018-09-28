@@ -31,7 +31,8 @@ typedef struct stack_s
  * struct element_s - data for opcode instructions
  * @n: the number that the stack node will hold
  * @str: the opcode
- *
+ * @lineptr: pointer to current line
+ * @fptr: pointer to file
  * Description: holds data for the opcode instructions
  */
 
@@ -39,6 +40,8 @@ typedef struct element_s
 {
 	char *n;
 	char *str;
+	char *lineptr;
+	FILE *fptr;
 } element_g;
 
 extern element_g element_t;

@@ -11,6 +11,10 @@ int arg_count(char *str)
 
 	while (str[i] != '\0')
 	{
+		if (str[i] == '\t')
+			str[i] = ' ';
+		if (str[i + 1] == '\t')
+			str[i + 1] = ' ';
 		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			word_count++;
 		i++;

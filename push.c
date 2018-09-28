@@ -15,6 +15,8 @@ void push_n(stack_t **stack, unsigned int line_num)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
 		free_stack(stack);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
@@ -22,6 +24,8 @@ void push_n(stack_t **stack, unsigned int line_num)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(element_t.n);

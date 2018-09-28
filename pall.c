@@ -15,6 +15,8 @@ void pall(stack_t **stack, unsigned int line)
 	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: invalid instruction\n", line);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 

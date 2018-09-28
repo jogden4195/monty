@@ -15,6 +15,8 @@ void add(stack_t **stack, unsigned int line)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line);
 		free_stack(stack);
+		free(element_t.lineptr);
+		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
 
