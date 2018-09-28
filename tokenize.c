@@ -33,7 +33,7 @@ void tokenize(char *str)
 		element_t.str = strtok(str, " \n\t");
 		if (words > 1)
 		{
-			element_t.n = atoi(strtok(NULL, " \n\t"));
+			element_t.n = strtok(NULL, " \n\t");
 			i++;
 		}
 	}
