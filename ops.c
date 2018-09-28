@@ -19,6 +19,7 @@ int get_ops(stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", subtract},
 		{NULL, NULL}
 	};
 	while (opcodes[i].opcode != NULL)
