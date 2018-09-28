@@ -34,7 +34,7 @@ void push_n(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * isnum - function to check if string is a number
+ * isnum - check if string is a number
  * @str: string to check
  * Return: 1 on success, 0 on failure
  */
