@@ -5,10 +5,10 @@
  * @stack: the stack we are editing
  * @line: current line number
  *
- * Returns: the function that the opcode corresponds to.
+ * Return: the function that the opcode corresponds to.
  */
 
-void get_ops(stack_t **stack, unsigned int line)
+int get_ops(stack_t **stack, unsigned int line)
 {
 	int i = 0;
 	instruction_t opcodes[] = {
@@ -26,11 +26,9 @@ void get_ops(stack_t **stack, unsigned int line)
 		if (strcmp(element_t.str, opcodes[i].opcode) == 0)
 		{
 			opcodes[i].f(stack, line);
-			return;
+			return (1);
 		}
 		i++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, element_t.str);
-	free_stack(stack);
-	exit(EXIT_FAILURE);
+	return (0);
 }
