@@ -21,5 +21,5 @@ int main(int argc, char **argv)
 	filename = argv[1];
 	get_line(&stack, filename);
 	free_stack(&stack);
-	return (1);
+	return (EXIT_SUCCESS);
 }
