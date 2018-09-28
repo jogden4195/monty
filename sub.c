@@ -9,7 +9,6 @@
 void subtract(stack_t **stack, unsigned int line_number)
 {
 	int diff = 0;
-	stack_t *head;
 
 	if (!(*stack) || !(*stack)->next)
 	{
