@@ -20,6 +20,10 @@ int get_ops(stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", subtract},
+		{"div", divide},
+		{"mul", multiply},
+		{"mod", modulo},
+		{"#", nop},
 		{NULL, NULL}
 	};
 	while (opcodes[i].opcode != NULL)
