@@ -3,12 +3,12 @@
 /**
  * get_ops -  gets the function the opcode corresponds to.
  * @stack: the stack we are editing
- * @line: current line number
+ * @line_number: current line number
  *
  * Return: the function that the opcode corresponds to.
  */
 
-int get_ops(stack_t **stack, unsigned int line)
+int get_ops(stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t opcodes[] = {
@@ -25,7 +25,7 @@ int get_ops(stack_t **stack, unsigned int line)
 	{
 		if (strcmp(element_t.str, opcodes[i].opcode) == 0)
 		{
-			opcodes[i].f(stack, line);
+			opcodes[i].f(stack, line_number);
 			return (1);
 		}
 		i++;

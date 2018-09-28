@@ -3,17 +3,17 @@
 /**
  * push_n - function that adds a new node at the end of a doubly linked list
  * @stack: stack we are editing
- * @line_num: current line count
+ * @line_number: current line count
  * Return: void
  */
-void push_n(stack_t **stack, unsigned int line_num)
+void push_n(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	int i;
 
 	if (isnum(element_t.n) == 0)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_num);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack(stack);
 		free(element_t.lineptr);
 		fclose(element_t.fptr);
@@ -50,6 +50,8 @@ int isnum(char *str)
 		return (0);
 	if (str[i] == '-')
 	{
+		if (str[i + 1] == '-')
+			return (0);
 		if (str[i + 1] == '\0')
 			return (0);
 		i++;
