@@ -18,7 +18,7 @@ void pchar(stack_t **stack, unsigned int line)
 		}
 		else
 		{
-		  fprintf(stderr, "L%u: can't pchar, value out of range", line);
+		  fprintf(stderr, "L%u: can't pchar, value out of range\n", line);
 		  free_stack(stack);
 		  free(element_t.lineptr);
 		  fclose(element_t.fptr);
