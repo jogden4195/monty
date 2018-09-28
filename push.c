@@ -10,6 +10,7 @@ void push_n(stack_t **stack, unsigned int line_num)
 {
 	stack_t *new_node;
 	int i;
+
 	if (isnum(element_t.n) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_num);
