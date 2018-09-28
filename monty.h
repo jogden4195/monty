@@ -34,6 +34,7 @@ typedef struct stack_s
  *
  * Description: holds data for the opcode instructions
  */
+
 typedef struct element_s
 {
 	char *n;
