@@ -33,6 +33,11 @@ int get_ops(stack_t **stack, unsigned int line_number)
 			opcodes[i].f(stack, line_number);
 			return (1);
 		}
+		if (element_t.str[0] == '#')
+		{
+			nop(stack, line_number);
+			return (1);
+		}
 		i++;
 	}
 	return (0);

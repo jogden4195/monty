@@ -17,7 +17,6 @@ void modulo(stack_t **stack, unsigned int line_number)
 		fclose(element_t.fptr);
 		exit(EXIT_FAILURE);
 	}
-
 	if ((*stack)->n == 0)
 
 	{
